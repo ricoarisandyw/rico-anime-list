@@ -42,6 +42,10 @@ const AnimeAPI = {
       data: uniqueAnime,
     };
   },
+  getByIds: async (ids: string[]) => {
+    const response = await Promise.all(ids.map(id => AnimeAPI.getById(id)));
+    return response;
+  },
 };
 
 export default AnimeAPI;

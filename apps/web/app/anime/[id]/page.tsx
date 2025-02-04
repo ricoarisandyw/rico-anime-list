@@ -1,3 +1,4 @@
+import BookmarkComponent from "@/components/widget/bookmark/Bookmark";
 import YoutubeBox from "@/components/widget/youtube-box/YoutubeBox";
 import AnimeAPI from "@repo/api/anime";
 import Image from "next/image";
@@ -24,6 +25,9 @@ export default async function AnimePage(props: { params: Promise<{ id: string }>
       <div className="col-span-2 flex flex-col gap-4 bg-gradient-to-r from-black/80 via-black/60 to-transparent p-8 text-white h-full">
         <div>
           <h1 className="text-2xl font-bold">{anime.data.title}</h1>
+        </div>
+        <div className="flex gap-2">
+          <BookmarkComponent id={anime.data.mal_id.toString()} />
         </div>
         <div className="flex gap-2">
           {anime.data.genres.map((genre) => <div className="text-white bg-black/50 backdrop-blur-sm rounded-full border border-white text-sm px-2 py-1" key={genre.mal_id + "-" + genre.name}>{genre.name}</div>)}
