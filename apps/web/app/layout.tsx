@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import Header from "./components/layout/Header";
 
 export const metadata: Metadata = {
   title: "Rico Anime List",
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="max-w-7xl mx-auto min-h-screen">
+        <Header />
         {children}
       </body>
     </html>
