@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import AnimeBox from "@/components/widget/animebox/AnimeBox";
 import AnimeBoxSkeleton from "@/components/widget/animebox/AnimeBoxSkeleton";
+import FilterGenre from "@/components/widget/filter-genre/FilterGenre";
 import SearchBox from "@/components/widget/search-box/SearchBox";
 import AnimeAPI from "@repo/api/anime";
 import { TypeAnime } from "@repo/api/types";
@@ -14,12 +15,14 @@ function SearchPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const q = searchParams.get("q");
+  const genres = searchParams.get("genres")
 
   const fetchAnime = async (page: number) => {
     const { data } = await AnimeAPI.search({
       q: q || "",
       limit: 5,
       page,
+      genres: genres || "",
     });
     return data;
   };
@@ -34,19 +37,20 @@ function SearchPage() {
 
   useEffect(() => {
     reset();
-  }, [q]);
+  }, [q, genres]);
 
   return (
     <div className="p-4 flex flex-col gap-4">
       <div className="justify-between items-center flex flex-col gap-2">
         <SearchBox alwaysOpen onDebounceChange={setQ} onEnter={setQ} />
+        <FilterGenre />
       </div>
       <div className="text-2xl font-bold">
-        {data.length} results for "{q}"
+        {data.length} results
       </div>
       <div className="grid grid-cols-5 gap-4">
         {data.map((anime) => <AnimeBox key={anime.mal_id} anime={anime as TypeAnime} />)}
-        {loading && Array.from({ length: 5 }).map((_, index) => <AnimeBoxSkeleton key={index} />)}
+        {loading && Array.from({ length: 5 }).map((_, index) => <AnimeBoxSkeleton key={`skeleton-${index}`} />)}
       </div>
       <div className="flex justify-center">
         <Button onClick={loadNextPage} disabled={loading}>
