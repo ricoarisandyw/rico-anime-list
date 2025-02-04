@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import Header from "./components/layout/Header";
+import ModalKitComponent from "./components/widget/modal-kit/ModalKit";
 
 export const metadata: Metadata = {
   title: "Rico Anime List",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="max-w-7xl mx-auto min-h-screen">
         <Header />
         {children}
+        <ModalKitComponent />
       </body>
     </html>
   );

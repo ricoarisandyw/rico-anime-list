@@ -7,7 +7,6 @@ import { ModalKit } from "../modal-kit/ModalKit";
 export default function YoutubeBox(props: {
   videoId: string;
 }) {
-
   const handleClick = () => {
     ModalKit.show(
       <div className="w-[50vw] h-auto aspect-video p-8 bg-white rounded-lg">

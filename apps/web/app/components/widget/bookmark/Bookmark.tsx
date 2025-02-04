@@ -13,7 +13,7 @@ export default function BookmarkComponent(props: {
     Bookmark.toggle(props.id);
   }
   
-  return <div className="cursor-pointer" onClick={handleClick}>
+  return <div data-cy="bookmark" className="cursor-pointer" onClick={handleClick}>
     {isBookmarked ? <LucideBookmark fill="white" size={32} /> : <LucideBookmark size={32} />}
   </div>
 }

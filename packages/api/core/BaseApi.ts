@@ -6,9 +6,9 @@ export const BaseApi = {
           if (response.status === 200) {
             resolve(response.json());
           } else if (response.status === 429) {
-        setTimeout(() => {
-          return BaseApi.GET<T>(url);
-        }, 1000);
+            setTimeout(() => {
+              return BaseApi.GET<T>(url);
+            }, 1000);
           } else {
             reject(response.statusText);
           }

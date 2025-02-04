@@ -21,7 +21,7 @@ export default async function AnimePage(props: { params: Promise<{ id: string }>
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   }}>
-    <div className="grid grid-cols-3 gap-4 h-full">
+    <div className="grid lg:grid-cols-3 gap-4 h-full">
       <div className="col-span-2 flex flex-col gap-4 bg-gradient-to-r from-black/80 via-black/60 to-transparent p-8 text-white h-full">
         <div>
           <h1 className="text-2xl font-bold">{anime.data.title}</h1>
