@@ -41,12 +41,14 @@ export default function SearchBox(props: {
 
   return (
     <div
+      data-cy="search-box"
       ref={refEl}
       onClick={handleClickSearchIcon}
       className="w-fit flex items-center justify-center bg-white rounded-full p-2 px-3 shadow-md group cursor-pointer"
     >
       <FaSearch className="cursor-pointer" />
       <input
+        data-cy="search-box-input"
         value={searchValue}
         ref={inputRef}
         type="text"
