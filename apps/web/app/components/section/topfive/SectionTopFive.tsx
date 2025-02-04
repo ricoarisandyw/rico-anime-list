@@ -9,8 +9,8 @@ export default async function SectionTopFive() {
     limit: 5,
   });
 
-  return <div className="h-[1000px] flex flex-col gap-4 items-center justify-center bg-gray-100 p-8">
-    <div className="text-2xl font-bold">
+  return <div id="top-anime" className="h-[1000px] flex flex-col gap-4 items-center justify-center bg-gray-300 p-8">
+    <div className="text-4xl font-bold">
       TOP ANIME
     </div>
     <InfiniteScrollProvider items={anime.data}>
