@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./anime": "./src/anime/AnimeAPI.ts"
+    "./anime": "./src/anime/AnimeAPI.ts",
+    "./types": "./src/anime/types/shared/index.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

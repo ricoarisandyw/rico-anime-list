@@ -1,11 +1,9 @@
-import AnimeAPI from "@repo/api/anime";
+import SectionTopFive from "./components/section/topfive/SectionTopFive";
 
 export default function Home() {
-  const res = AnimeAPI.getAnime();
-
   return (
-    <div className="bg-green-500">
-      <h1>{res}</h1>
+    <div>
+      <SectionTopFive />
     </div>
   );
 }
